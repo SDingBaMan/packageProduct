@@ -1,0 +1,76 @@
+#spring:
+#  profiles:
+#    active: @profileActive@
+#  datasource:
+#    url: jdbc:mysql://123.56.86.1:3306/crm?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: huitui_crm
+#    password: Huitui_crm_rw123!@#
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    maxActive: 20
+#    initialSize: 1
+#    minIdle: 1
+#    maxWait: 60000
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: select 'x'
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true
+#    maxOpenPreparedStatements: 20
+#  name:
+#    host:
+#  data:
+#    mongodb:
+#      database: ad_material
+#      host: 123.56.71.187
+#      port: 27017
+#      username: ht_spider
+#      password: '!@#Huitui'
+#  ops:
+#     opsdata:
+#        database: extend_data
+#        host: 123.56.71.187
+#        port: 3306
+#        username: ops
+#        password: huituiops
+
+
+upload:
+  path: /tmp/file/
+
+#server:
+#  context-path: /
+#  port: 9020
+#
+
+lts:
+  jobclient:
+    cluster-name: test_cluster
+    registry-address: zookeeper://123.56.71.187:2181
+    node-group: crm
+    use-retry-client: true
+  jobtracker:
+    cluster-name: test_cluster
+    registry-address: zookeeper://123.56.71.187:2181
+    listen-port: 8086
+    configs:
+      jdbc.url: 'jdbc:mysql://123.56.86.1:3306/lts'
+      jdbc.username: huitui_crm
+      jdbc.password: 'Huitui_crm_rw123!@#'
+  monitor:
+    cluster-name: test_cluster
+    registry-address: zookeeper://123.56.71.187:2181
+    configs:
+      jdbc.url: 'jdbc:mysql://123.56.86.1:3306/lts'
+      jdbc.username: huitui_crm
+      jdbc.password: 'Huitui_crm_rw123!@#'
+  tasktracker:
+    registry-address: zookeeper://123.56.71.187:2181
+    node-group: crm
+    cluster-name: test_cluster
+    configs:
+      jdbc.url: 'jdbc:mysql://123.56.86.1:3306/lts'
+      jdbc.username: huitui_crm
+      jdbc.password: 'Huitui_crm_rw123!@#'
